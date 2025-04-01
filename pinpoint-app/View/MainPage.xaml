@@ -1,0 +1,65 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage 
+    x:Class="pinpoint_app.View.MainPage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"         
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:model ="clr-namespace:pinpoint_app.Model"
+    xmlns:viewmodel = "clr-namespace:pinpoint_app.ViewModel"
+    x:DataType="viewmodel:EventsViewModel"
+    Title="{Binding Title}"
+    >
+
+    <Grid
+        ColumnDefinitions="*,*"
+        ColumnSpacing="5"
+        RowDefinitions="*,Auto"
+        RowSpacing="0">
+
+        <CollectionView
+            ItemsSource="{Binding Events}"
+            SelectionMode="None"
+            Grid.ColumnSpan="2">
+            <CollectionView.ItemTemplate>
+                <DataTemplate x:DataType="model:Event">
+                    <Grid Padding="10">
+                        <Border HeightRequest="125" Style="{StaticResource CardView}">
+                            <Border.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped" />
+                            </Border.GestureRecognizers>
+                            <Grid Padding="0" ColumnDefinitions="125,*">
+                                <Image 
+                                    Aspect="AspectFill" Source="{Binding imageURL}"
+                                    WidthRequest="125"
+                                    HeightRequest="125" />
+                                <StackLayout
+                                    Grid.Column="1"
+                                    Padding="10"
+                                    VerticalOptions="Center">
+                                    <Label Style="{StaticResource LargeLabel}" Text="{Binding title}" />
+                                    <Label Style="{StaticResource MediumLabel}" Text="{Binding DateTimeDisplay}" />
+                                    <Label Style="{StaticResource SmallLabel}" Text="{Binding address}" />
+                                </StackLayout>
+                            </Grid>
+                        </Border>
+                    </Grid>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+        <Button 
+            Text="Get Events"
+            Command="{Binding GetEventsCommand}"
+            IsEnabled="{Binding IsNotBusy}"
+            Grid.Row="1"
+            Grid.Column="0"
+            Style="{StaticResource ButtonOutline}"
+            Margin="8" />
+        <ActivityIndicator 
+            IsVisible="{Binding IsBusy}"
+            IsRunning="{Binding IsBusy}"
+            HorizontalOptions="Center"
+            VerticalOptions="Center"
+            Grid.RowSpan="2"
+            Grid.ColumnSpan="2" />
+    </Grid>
+
+</ContentPage>
