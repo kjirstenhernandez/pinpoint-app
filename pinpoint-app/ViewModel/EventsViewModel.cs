@@ -17,24 +17,24 @@ public partial class EventsViewModel : BaseEventViewModel
 
     async Task GetEventsAsync()
     {
-        if (IsBusy)
+        if (IsBusy) // Prevents duplicate calls if IsBusy is true
             return;
         try
         {
-            IsBusy = true; // Prevents duplicate calls if IsBusy is true, and shows the progress indicator 
-            var events = await eventService.GetEvents();
+            IsBusy = true; 
+            var events = await eventService.GetEvents(); // Gets events from the service
             if (Events.Count != 0)
-                Events.Clear(); // Clears teh existing list before adding new events
+                Events.Clear(); // Clears the existing list before adding new events
             foreach (var eventItem in events)
                 Events.Add(eventItem);
 
         }
-        catch (Exception ex) // catches exceptionss and logs them to the debug console
+        catch (Exception ex) // catches exceptions and logs them to the debug console
         {
             Debug.WriteLine($"Unable to get events: {ex.Message}");
             await Application.Current.MainPage.DisplayAlert("Error!", ex.Message, "OK");
         }
         finally
-        { IsBusy = false; }
+        { IsBusy = false; } // Sets IsBusy to false after the operation is complete
     }
 }

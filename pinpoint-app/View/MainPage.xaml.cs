@@ -7,7 +7,7 @@ public partial class MainPage : ContentPage
     public MainPage(EventsViewModel eventsViewModel)
     {
         InitializeComponent();
-        BindingContext = eventsViewModel;
+        BindingContext = eventsViewModel; // Binds the EventsViewModel to the UI, including the activity indicator and the list of events.
     }
 
     private async void TapGestureRecognizer_Tapped(object sender, EventArgs e)
