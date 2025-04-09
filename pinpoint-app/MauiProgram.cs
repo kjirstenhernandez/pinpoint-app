@@ -20,9 +20,11 @@ public static class MauiProgram
 #if DEBUG
 		builder.Logging.AddDebug();
 #endif
-        builder.Services.AddTransient<MainPage>();
-        builder.Services.AddTransient<EventsViewModel>();
         builder.Services.AddSingleton<EventService>();
+        builder.Services.AddSingleton<IGeolocation>(Geolocation.Default);
+        builder.Services.AddSingleton<IMap>(Map.Default);
+        builder.Services.AddTransient<EventsViewModel>();
+        builder.Services.AddTransient<MainPage>();
         builder.Services.AddTransient<EventDetailsViewModel>();
         builder.Services.AddTransient<EventDetailsPage>();
 

@@ -21,8 +21,9 @@ Libraries used:
 
 {Make a list of websites that you found helpful in this project}
 * [Developer Thoughts - Alternatives to AppShell](https://egvijayanand.in/2024/10/30/transitioning-from-application-mainpage-to-window-page-in-dotnet-maui-9/#:~:text=NET%20MAUI%209%2C%20specifically%20the,set%20during%20the%20Window's%20instantiation.&text=After:,derived%20from%20the%20Window%20type.&text=//%20The%20window%20type%20can%20also%20be%20used%20directly.&text=Further%20Reading:,MainPage%20deprecation)
-* [Dotnet Youtube - Adding Interactive Gestures to Conrols in .NET MAUI](https://www.youtube.com/watch?v=kVvIxdyBzH8)
+* [Dotnet Youtube - Adding Interactive Gestures to Controls in .NET MAUI](https://www.youtube.com/watch?v=kVvIxdyBzH8)
 * [Dotnet Youtube - .NET MAUI for Beginners (Series)](https://youtu.be/Hh279ES_FNQ?si=HeQFViS3zBlxHVwo)
+* [Microsoft .NET Maui Documentation on Relative bindings](https://learn.microsoft.com/en-us/dotnet/maui/fundamentals/data-binding/relative-bindings?view=net-maui-9.0&utm_source=chatgpt.com)]
 
 
 # Future Work
