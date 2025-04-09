@@ -24,7 +24,9 @@
                     <Grid Padding="10">
                         <Border HeightRequest="125" Style="{StaticResource CardView}">
                             <Border.GestureRecognizers>
-                                <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped" />
+                                <TapGestureRecognizer 
+                                    Command="{Binding Source={RelativeSource AncestorType={x:Type viewmodel:EventsViewModel}}, Path=GoToDetailsCommand}"
+                                CommandParameter="{Binding .}" />
                             </Border.GestureRecognizers>
                             <Grid Padding="0" ColumnDefinitions="125,*">
                                 <Image 
