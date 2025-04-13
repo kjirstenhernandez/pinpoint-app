@@ -1,0 +1,39 @@
+<ContentPage 
+    xmlns:maps="http://schemas.microsoft.com/dotnet/2021/maui/maps"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="pinpoint_app.View.MapPage"
+    xmlns:viewmodel="clr-namespace:pinpoint_app.ViewModel"
+    x:DataType="viewmodel:MapViewModel"
+    Title="Close Events Map">
+
+    <Grid>
+        <maps:Map 
+            x:Name="ClosestEvents"
+            MapType="Street"
+            IsShowingUser="true" />
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*" />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="Auto" />
+            </Grid.ColumnDefinitions>
+
+            <Button 
+                Grid.Row="0" 
+                Grid.Column="1" 
+                Text="⟳" 
+                WidthRequest="50"
+                HeightRequest="50"
+                BackgroundColor="#527AA3"
+                TextColor="White"
+                CornerRadius="30"
+                FontSize="24"
+                Margin="20"
+                Clicked="OnRefreshClicked" />
+        </Grid>
+    </Grid>
+</ContentPage>

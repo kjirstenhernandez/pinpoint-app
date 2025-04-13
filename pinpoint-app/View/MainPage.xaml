@@ -1,20 +1,21 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage 
+    
     x:Class="pinpoint_app.View.MainPage"
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"         
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:model ="clr-namespace:pinpoint_app.Model"
     xmlns:viewmodel = "clr-namespace:pinpoint_app.ViewModel"
+    xmlns:behaviors="clr-namespace:pinpoint_app.Behaviors"
     x:DataType="viewmodel:EventsViewModel"
-    Title="{Binding Title}"
-    >
-
+    Title="Events">
+    
     <Grid
+
         ColumnDefinitions="*,*"
         ColumnSpacing="5"
         RowDefinitions="*,Auto"
         RowSpacing="0">
-
         <CollectionView
             ItemsSource="{Binding Events}"
             SelectionMode="None"
@@ -23,11 +24,15 @@
                 <DataTemplate x:DataType="model:Event">
                     <Grid Padding="10">
                         <Border HeightRequest="125" Style="{StaticResource CardView}">
+                            <Border.Behaviors>
+                                <behaviors:ClipBehavior />
+                            </Border.Behaviors>
                             <Border.GestureRecognizers>
                                 <TapGestureRecognizer 
                                     Command="{Binding Source={RelativeSource AncestorType={x:Type viewmodel:EventsViewModel}}, Path=GoToDetailsCommand}"
                                 CommandParameter="{Binding .}" />
                             </Border.GestureRecognizers>
+                            
                             <Grid Padding="0" ColumnDefinitions="125,*">
                                 <Image 
                                     Aspect="AspectFill" Source="{Binding imageURL}"
@@ -55,6 +60,14 @@
             Grid.Column="0"
             Style="{StaticResource ButtonOutline}"
             Margin="8" />
+        <Button
+            Text="Find Closest"
+            Command="{Binding GoToMapCommand}"
+            IsEnabled="{Binding IsNotBusy}"
+            Grid.Row="1"
+            Grid.Column="1"
+            Style="{StaticResource ButtonOutline}"
+            Margin="8" />
         <ActivityIndicator 
             IsVisible="{Binding IsBusy}"
             IsRunning="{Binding IsBusy}"
@@ -63,5 +76,4 @@
             Grid.RowSpan="2"
             Grid.ColumnSpan="2" />
     </Grid>
-
 </ContentPage>

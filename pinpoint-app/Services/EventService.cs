@@ -3,17 +3,20 @@
 
 namespace pinpoint_app.Services;
 
-public class EventService
+public class EventService : Interfaces.IEventService
 {
-    List<Event> eventList = new();
+    // Create and initialize a new HTTP client
     HttpClient httpClient;
 
     public EventService()
-    // Initializes a new http client 
+
     {
         this.httpClient = new HttpClient();
     }
-    public async Task<List<Event>> GetEvents()
+
+    // Create a blank list of events and use the GetEvents method to populate it
+    List<Event> eventList = new();
+    public async Task<List<Event>> GetEventsAsync()
     // Sends a request to the PinPoint API to gather Event Info for display
     {
         if (eventList.Count > 0)

@@ -1,6 +1,4 @@
-﻿
-
-namespace pinpoint_app.View;
+﻿namespace pinpoint_app.View;
 
 public partial class MainPage : ContentPage
 {

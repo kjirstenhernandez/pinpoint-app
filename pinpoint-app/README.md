@@ -24,10 +24,10 @@ Libraries used:
 * [Dotnet Youtube - Adding Interactive Gestures to Controls in .NET MAUI](https://www.youtube.com/watch?v=kVvIxdyBzH8)
 * [Dotnet Youtube - .NET MAUI for Beginners (Series)](https://youtu.be/Hh279ES_FNQ?si=HeQFViS3zBlxHVwo)
 * [Microsoft .NET Maui Documentation on Relative bindings](https://learn.microsoft.com/en-us/dotnet/maui/fundamentals/data-binding/relative-bindings?view=net-maui-9.0&utm_source=chatgpt.com)]
+* [Frame to Border Migration help for .NET 9](https://egvijayanand.in/2024/11/02/transitioning-from-frame-to-border-in-dotnet-maui/)
 
 
 # Future Work
-
 * Add GIS Mapping
 * Fix the API call (adding other capabilities such as add, edit, and delete events)
 * Integrate OAuth for user authentication
