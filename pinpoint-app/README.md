@@ -3,7 +3,9 @@
 This app is the UI for PinPoint, an event service that allows users to find events local to them, as well as create their own.  It utilizes the backend API I developed previously; that repository can be found at https://github.com/kjirstenhernandez/pinpoint-api.  To use this app, upon loading on an Android phone, a user can click the app and tap the "Get Events" button at the bottom.  A list of all the events will load, and a detailed view can be seen by tapping on the desired event. 
 
 
-[Software Demo Video](https://teams.microsoft.com/l/message/48:notes/1743617812979?context=%7B%22contextType%22%3A%22chat%22%7D)
+[Software Demo Video - Part 1, the Event UI](https://youtu.be/bOpqC1Q6_NA))
+[Software Demo Video - Part 2, GIS Mapping and location]
+(https://youtu.be/xvDytvceS1I)
 
 # Development Environment
 
