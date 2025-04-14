@@ -10,7 +10,7 @@ public static class MauiProgram
     public static MauiApp CreateMauiApp()
     {
         var builder = MauiApp.CreateBuilder();
-        builder.UseMauiApp<App>()//.UseMauiCommunityToolkit()
+        builder.UseMauiApp<App>()
         .UseMauiMaps().ConfigureFonts(fonts =>
         {
             fonts.AddFont("NationalPark-Light.ttf", "NationalParkLight");
@@ -33,6 +33,7 @@ public static class MauiProgram
         builder.Services.AddTransient<EventDetailsPage>();
         builder.Services.AddTransient<MapViewModel>();
         builder.Services.AddTransient<MapPage>();
+        builder.Services.AddSingleton<DateTimeConversionService>();
         return builder.Build();
     }
 }

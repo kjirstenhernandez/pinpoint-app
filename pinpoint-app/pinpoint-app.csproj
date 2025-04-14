@@ -39,11 +39,12 @@
 		<SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'windows'">10.0.17763.0</SupportedOSPlatformVersion>
 		<TargetPlatformMinVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'windows'">10.0.17763.0</TargetPlatformMinVersion>
 		<SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'tizen'">6.5</SupportedOSPlatformVersion>
-	</PropertyGroup>
+	  <UserSecretsId>c2339067-7b47-4a9e-9d72-389c2e2b27a3</UserSecretsId>
+  </PropertyGroup>
 
 	<ItemGroup>
 		<!-- App Icon -->
-		<MauiIcon Include="Resources\AppIcon\appicon.svg" ForegroundFile="Resources\AppIcon\appiconfg.svg" Color="#F2F5F8"/>
+		<MauiIcon Include="Resources\AppIcon\appicon.svg" ForegroundFile="Resources\AppIcon\appiconfg.svg" Color="#F2F5F8" />
 
 		<!-- Splash Screen -->
 		<MauiSplashScreen Include="Resources\Splash\splash.svg" Color="#527AA3" BaseSize="128,128" />
@@ -75,6 +76,19 @@
 	    <DependentUpon>EventDetailsPage.xaml</DependentUpon>
 	  </Compile>
 	</ItemGroup>
+	
+	<PropertyGroup>
+		<UserSecretsId>c2339067-7b47-4a9e-9d72-389c2e2b27a3</UserSecretsId>
+		<GoogleMapsApiKey>$(GOOGLE_MAPS_API_KEY)</GoogleMapsApiKey>
+	</PropertyGroup>
+
+	<Target Name="InjectGoogleMapsApiKey" BeforeTargets="Build">
+		<Message Importance="high" Text="Injecting Google Maps API key into AndroidManifest.xml" />
+		<XmlPoke XmlInputPath="Platforms\Android\AndroidManifest.xml"
+				 Query="/manifest/application/meta-data[@android:name='com.google.android.geo.API_KEY']/@android:value"
+				 Value="$(GoogleMapsApiKey)" />
+	</Target>
+
 
 	<ItemGroup>
 	  <MauiXaml Update="View\EventDetailsPage.xaml">
@@ -89,5 +103,4 @@
 	  <Folder Include="Resources\Images\" />
 	  <Folder Include="Resources\Splash\" />
 	</ItemGroup>
-
 </Project>

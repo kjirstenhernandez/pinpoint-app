@@ -1,4 +1,5 @@
 ﻿using System.Text.Json.Serialization;
+using pinpoint_app.Services;
 
 namespace pinpoint_app.Model;
 
@@ -16,7 +17,8 @@ public class Event
     public string time { get; set; } 
     public string imageURL { get; set; }
 
-    public string DateTimeDisplay => $"{date}, {time}";
+    public string DateTimeDisplay => DateTimeConversionService.FormatDateAndTime(date, time); // uses the  to format the date and time
+
 
 
 }
