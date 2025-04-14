@@ -84,10 +84,9 @@
 
 	<Target Name="InjectGoogleMapsApiKey" BeforeTargets="Build">
 		<Message Importance="high" Text="Injecting Google Maps API key into AndroidManifest.xml" />
-		<XmlPoke XmlInputPath="Platforms\Android\AndroidManifest.xml"
-				 Query="/manifest/application/meta-data[@android:name='com.google.android.geo.API_KEY']/@android:value"
-				 Value="$(GoogleMapsApiKey)" />
+		<Exec Command="powershell -ExecutionPolicy Bypass -File InjectGoogleMapsApiKey.ps1 -ManifestPath &quot;$(MSBuildProjectDirectory)\Platforms\Android\AndroidManifest.xml&quot; -ApiKey &quot;$(GoogleMapsApiKey)&quot;" />
 	</Target>
+
 
 
 	<ItemGroup>
