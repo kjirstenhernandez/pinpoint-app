@@ -4,6 +4,7 @@ This app is the UI for PinPoint, an event service that allows users to find even
 
 
 [Software Demo Video - Part 1, the Event UI](https://youtu.be/bOpqC1Q6_NA)
+
 [Software Demo Video - Part 2, GIS Mapping and location](https://youtu.be/xvDytvceS1I)
 
 
